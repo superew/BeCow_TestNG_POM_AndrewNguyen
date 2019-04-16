@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" parallel="tests">
+  <test thread-count="5" name="Login guru on Chrome(failed)" parallel="tests">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="version" value="2.46"/>
+    <parameter name="url" value="https://www.beecow.com/market"/>
+    <classes>
+      <class name="com.becow.testcases.UploadProductScripts">
+        <methods>
+          <include name="afterClass"/>
+          <include name="beforeMethod"/>
+          <include name="beforeClass"/>
+          <include name="TC_011"/>
+        </methods>
+      </class> <!-- com.becow.testcases.UploadProductScripts -->
+    </classes>
+  </test> <!-- Login guru on Chrome(failed) -->
+</suite> <!-- Failed suite [Suite] -->
