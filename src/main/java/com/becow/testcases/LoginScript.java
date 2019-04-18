@@ -23,7 +23,10 @@ public class LoginScript extends CommonTestCase {
 	@Parameters({ "browser", "version", "url" })
 	@BeforeClass
 	public void beforeClass(String browser, String version, String url) {
+
 		driver = openMultiBrowser(browser, version, url);
+//		homePage = PageFactory.initElements(driver, HomePage.class);
+//		homePage.clickLoginMenu();
 
 //		email = "andrew" + randomEmail() + "@gmail.com";
 		errorMsg = "Hãy nhập email / số điện thoại và mật khẩu";

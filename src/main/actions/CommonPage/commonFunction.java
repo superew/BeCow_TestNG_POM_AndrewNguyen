@@ -27,6 +27,7 @@ public class commonFunction extends BasePage{
 	}
 
 	private int timeouts = 20;
+	
 	public void openUrl(String url) {
 		driver.get(url);
 	}
@@ -314,6 +315,13 @@ public class commonFunction extends BasePage{
 		String dynamicLocator = String.format(locator, (Object[]) dynamic);
 		WebElement element = driver.findElement(By.xpath(dynamicLocator));
 		element.click();
+	}
+	
+	public void clickRandomCombobox(String locator) {
+		List<WebElement> selects = driver.findElements(By.xpath(locator));
+		Random rand = new Random();
+		int list = rand.nextInt(selects.size());
+	    selects.get(list).click();
 	}
 
 }

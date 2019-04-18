@@ -15,7 +15,7 @@ public class SellerPageUI {
 	
 	public static final String CAT2 = "//div[contains(@class,'category-mid')]/button";
 	public static final String CAT2_DROPDOWN = "//div[contains(@class,'category-mid')]//li";
-	public static final String CAT_MSG = "//label[contains(@beetranslate,'category') and @class='invalid']/span";
+	public static final String CAT_MSG = "//label[contains(@beetranslate,'error.category')]/span";
 	
 	public static final String DES_TXT = "//label[contains(@beetranslate,'description')]/following-sibling::div//p";
 	public static final String DES_MSG = "//label[contains(@beetranslate,'description')]/span";

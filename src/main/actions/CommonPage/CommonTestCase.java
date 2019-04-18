@@ -46,6 +46,10 @@ public class CommonTestCase {
 	public void closeBrowser() {
 		driver.quit();
 	}
+	
+	public void refreshBrowser() {
+		refreshBrowser();
+	}
 
 //	public JsonData getDataJson(String JsonFile) {
 //		String json = readFile(JsonFile);

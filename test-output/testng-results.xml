@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="15277" started-at="2019-04-16T17:25:00Z" finished-at="2019-04-16T17:25:16Z">
+  <suite name="Suite" duration-ms="16244" started-at="2019-04-17T18:29:26Z" finished-at="2019-04-17T18:29:42Z">
     <groups>
     </groups>
-    <test name="Login guru on Chrome" duration-ms="15277" started-at="2019-04-16T17:25:00Z" finished-at="2019-04-16T17:25:16Z">
+    <test name="Login guru on Chrome" duration-ms="16244" started-at="2019-04-17T18:29:26Z" finished-at="2019-04-17T18:29:42Z">
       <class name="com.becow.testcases.UploadProductScripts">
-        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.becow.testcases.UploadProductScripts@6a4f787b]" name="beforeClass" is-config="true" duration-ms="11739" started-at="2019-04-16T17:25:00Z" finished-at="2019-04-16T17:25:12Z">
+        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.becow.testcases.UploadProductScripts@604ed9f0]" name="beforeClass" is-config="true" duration-ms="13469" started-at="2019-04-17T18:29:26Z" finished-at="2019-04-17T18:29:39Z">
           <params>
             <param index="0">
               <value>
@@ -28,17 +28,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.becow.testcases.UploadProductScripts@6a4f787b]" name="beforeMethod" is-config="true" duration-ms="2263" started-at="2019-04-16T17:25:12Z" finished-at="2019-04-16T17:25:14Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.becow.testcases.UploadProductScripts@604ed9f0]" name="beforeMethod" is-config="true" duration-ms="1126" started-at="2019-04-17T18:29:39Z" finished-at="2019-04-17T18:29:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="TC_011()[pri:0, instance:com.becow.testcases.UploadProductScripts@6a4f787b]" name="TC_011" duration-ms="537" started-at="2019-04-16T17:25:14Z" finished-at="2019-04-16T17:25:15Z">
+        <test-method status="FAIL" signature="TC_012()[pri:0, instance:com.becow.testcases.UploadProductScripts@604ed9f0]" name="TC_012" duration-ms="1632" started-at="2019-04-17T18:29:41Z" finished-at="2019-04-17T18:29:42Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [Hãy chọn danh mục.] but found [//label[contains(@beetranslate,'category')]/span]]]>
+              <![CDATA[expected [Hãy chọn danh mục.] but found [Mô tả *]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [Hãy chọn danh mục.] but found [//label[contains(@beetranslate,'category')]/span]
+              <![CDATA[java.lang.AssertionError: expected [Hãy chọn danh mục.] but found [Mô tả *]
 at org.testng.Assert.fail(Assert.java:96)
 at org.testng.Assert.failNotEquals(Assert.java:776)
 at org.testng.Assert.assertEqualsImpl(Assert.java:137)
@@ -46,7 +46,7 @@ at org.testng.Assert.assertEquals(Assert.java:118)
 at org.testng.Assert.assertEquals(Assert.java:453)
 at org.testng.Assert.assertEquals(Assert.java:463)
 at CommonPage.CommonTestCase.verifyEqual(CommonTestCase.java:43)
-at com.becow.testcases.UploadProductScripts.TC_011(UploadProductScripts.java:102)
+at com.becow.testcases.UploadProductScripts.TC_012(UploadProductScripts.java:131)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -72,11 +72,7 @@ at java.lang.Thread.run(Unknown Source)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_011 -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.becow.testcases.UploadProductScripts@6a4f787b]" name="afterClass" is-config="true" duration-ms="726" started-at="2019-04-16T17:25:15Z" finished-at="2019-04-16T17:25:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
+        </test-method> <!-- TC_012 -->
       </class> <!-- com.becow.testcases.UploadProductScripts -->
     </test> <!-- Login guru on Chrome -->
   </suite> <!-- Suite -->

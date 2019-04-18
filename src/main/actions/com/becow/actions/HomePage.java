@@ -21,11 +21,13 @@ public class HomePage extends commonFunction {
 	
 	public void inputUsername(String value) {
 		waitVisible(HomePageUI.USER_NAME);
+		clear(HomePageUI.USER_NAME);
 		input(HomePageUI.USER_NAME, value);
 	}
 	
 	public void inputPass(String value) {
 		waitVisible(HomePageUI.PASS);
+		clear(HomePageUI.PASS);
 		input(HomePageUI.PASS, value);
 	}
 	
