@@ -128,7 +128,7 @@ public class UploadProductScripts extends CommonTestCase {
 		sellerPage.clickRandomCat1();
 		sellerPage.clickPostProductBTN();
 		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
-		verifyEqual(sellerPage.getTextDesMSG(), catProdMsg);
+		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
 		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
 		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
 		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
