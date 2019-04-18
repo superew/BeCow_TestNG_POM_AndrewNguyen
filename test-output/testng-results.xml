@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="16244" started-at="2019-04-17T18:29:26Z" finished-at="2019-04-17T18:29:42Z">
+  <suite name="Suite" duration-ms="16673" started-at="2019-04-18T15:03:23Z" finished-at="2019-04-18T15:03:39Z">
     <groups>
     </groups>
-    <test name="Login guru on Chrome" duration-ms="16244" started-at="2019-04-17T18:29:26Z" finished-at="2019-04-17T18:29:42Z">
+    <test name="Login guru on Chrome" duration-ms="16673" started-at="2019-04-18T15:03:23Z" finished-at="2019-04-18T15:03:39Z">
       <class name="com.becow.testcases.UploadProductScripts">
-        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.becow.testcases.UploadProductScripts@604ed9f0]" name="beforeClass" is-config="true" duration-ms="13469" started-at="2019-04-17T18:29:26Z" finished-at="2019-04-17T18:29:39Z">
+        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.becow.testcases.UploadProductScripts@604ed9f0]" name="beforeClass" is-config="true" duration-ms="14107" started-at="2019-04-18T15:03:23Z" finished-at="2019-04-18T15:03:37Z">
           <params>
             <param index="0">
               <value>
@@ -28,11 +28,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.becow.testcases.UploadProductScripts@604ed9f0]" name="beforeMethod" is-config="true" duration-ms="1126" started-at="2019-04-17T18:29:39Z" finished-at="2019-04-17T18:29:41Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.becow.testcases.UploadProductScripts@604ed9f0]" name="beforeMethod" is-config="true" duration-ms="1487" started-at="2019-04-18T15:03:37Z" finished-at="2019-04-18T15:03:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="TC_012()[pri:0, instance:com.becow.testcases.UploadProductScripts@604ed9f0]" name="TC_012" duration-ms="1632" started-at="2019-04-17T18:29:41Z" finished-at="2019-04-17T18:29:42Z">
+        <test-method status="FAIL" signature="TC_012()[pri:0, instance:com.becow.testcases.UploadProductScripts@604ed9f0]" name="TC_012" duration-ms="1065" started-at="2019-04-18T15:03:38Z" finished-at="2019-04-18T15:03:39Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [Hãy chọn danh mục.] but found [Mô tả *]]]>
