@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite" parallel="tests" >
+<suite name="Suite" parallel="tests">
 	<test name="Login guru on Chrome">
 		<parameter name="browser" value="chrome" />
 		<parameter name="version" value="2.46" />
 		<parameter name="url" value="https://www.beecow.com/market" />
 		<classes>
-<!-- 			<class name="com.becow.testcases.LoginScript" /> -->
+			<!-- <class name="com.becow.testcases.LoginScript" /> -->
 			<class name="com.becow.testcases.UploadProductScripts" />
 		</classes>
 	</test>

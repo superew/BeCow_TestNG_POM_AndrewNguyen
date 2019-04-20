@@ -8,9 +8,12 @@
     <classes>
       <class name="com.becow.testcases.UploadProductScripts">
         <methods>
-          <include name="TC_012"/>
+          <include name="TC_031"/>
+          <include name="afterClass"/>
+          <include name="TC_032"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
+          <include name="TC_033"/>
         </methods>
       </class> <!-- com.becow.testcases.UploadProductScripts -->
     </classes>
