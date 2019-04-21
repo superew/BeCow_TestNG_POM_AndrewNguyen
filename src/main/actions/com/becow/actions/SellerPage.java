@@ -1,5 +1,6 @@
 package com.becow.actions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.becow.ui.SellerPageUI;
@@ -37,24 +38,28 @@ public class SellerPage extends commonFunction {
 		input(SellerPageUI.PROD_NAME, value);
 	}
 
-	public void clickCat1() {
-		waitVisible(SellerPageUI.CAT1);
-		click(SellerPageUI.CAT1);
-		waitVisible(SellerPageUI.CAT1_DROPDOWN);
-	}
+//	public void clickCat1() {
+//		waitVisible(SellerPageUI.CAT1);
+//		click(SellerPageUI.CAT1);
+//		waitVisible(SellerPageUI.CAT1_DROPDOWN);
+//	}
 
 	public void clickRandomCat1() {
+		waitVisible(SellerPageUI.CAT1);
+		click(SellerPageUI.CAT1);
 		waitVisible(SellerPageUI.CAT1_DROPDOWN);
 		clickRandomCombobox(SellerPageUI.CAT1_DROPDOWN);
 	}
 
-	public void clickCat2() {
-		waitVisible(SellerPageUI.CAT2);
-		click(SellerPageUI.CAT2);
-		waitVisible(SellerPageUI.CAT2_DROPDOWN);
-	}
+//	public void clickCat2() {
+//		waitVisible(SellerPageUI.CAT2);
+//		click(SellerPageUI.CAT2);
+//		waitVisible(SellerPageUI.CAT2_DROPDOWN);
+//	}
 
 	public void clickRandomCat2() {
+		waitVisible(SellerPageUI.CAT2);
+		click(SellerPageUI.CAT2);
 		waitVisible(SellerPageUI.CAT2_DROPDOWN);
 		clickRandomCombobox(SellerPageUI.CAT2_DROPDOWN);
 	}
@@ -69,15 +74,21 @@ public class SellerPage extends commonFunction {
 		clickRandomCombobox(SellerPageUI.CAT2_DROPDOWN_OTHER);
 	}
 
-	public void clickCat3() {
-		waitVisible(SellerPageUI.CAT3);
-		click(SellerPageUI.CAT3);
-		waitVisible(SellerPageUI.CAT3_DROPDOWN);
-	}
+//	public void clickCat3() {
+//		waitVisible(SellerPageUI.CAT3);
+//		click(SellerPageUI.CAT3);
+//		waitVisible(SellerPageUI.CAT3_DROPDOWN);
+//	}
 
 	public void clickRandomCat3() {
-		waitVisible(SellerPageUI.CAT3_DROPDOWN);
-		clickRandomCombobox(SellerPageUI.CAT3_DROPDOWN);
+		Boolean isPresent = driver.findElements(By.xpath(SellerPageUI.CAT3)).size() > 0;
+		if(isPresent==true) {
+			waitVisible(SellerPageUI.CAT3);
+			click(SellerPageUI.CAT3);
+			waitVisible(SellerPageUI.CAT3_DROPDOWN);
+			clickRandomCombobox(SellerPageUI.CAT3_DROPDOWN);
+		}
+		
 	}
 
 	public void clickViewList() {
@@ -86,8 +97,8 @@ public class SellerPage extends commonFunction {
 	}
 
 	public void clickViewDetail() {
-		waitVisible(SellerPageUI.VIEW_EDIT_DETAIL_BTN);
-		click(SellerPageUI.VIEW_EDIT_DETAIL_BTN);
+		waitVisible(SellerPageUI.VIEW_EDIT_DETAIL2_BTN);
+		click(SellerPageUI.VIEW_EDIT_DETAIL2_BTN);
 	}
 
 	public void clickDelProduct() {
@@ -217,5 +228,11 @@ public class SellerPage extends commonFunction {
 	public String getTextCat3Txt() {
 		waitVisible(SellerPageUI.CAT3_TXT);
 		return getText(SellerPageUI.CAT3_TXT);
+	}
+	
+	//Get text in Edit Product
+	public String getTextName() {
+		waitVisible(SellerPageUI.NAME_EDIT);
+		return getText(SellerPageUI.NAME_EDIT);
 	}
 }

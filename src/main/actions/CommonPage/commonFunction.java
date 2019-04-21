@@ -322,5 +322,7 @@ public class commonFunction extends BasePage {
 		int list = rand.nextInt(selects.size());
 		selects.get(list).click();
 	}
+	
+
 
 }

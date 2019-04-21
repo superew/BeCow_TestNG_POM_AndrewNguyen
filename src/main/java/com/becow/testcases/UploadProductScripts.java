@@ -90,31 +90,39 @@ public class UploadProductScripts extends CommonTestCase {
 		post_sucess_msg = "Bạn đã đăng thành công sản phẩm này";
 
 	}
+	
+	public void inputInfo() {
+		sellerPage.uploadIMG(pathDataImage);
+		sellerPage.inputProductName(productName);
+		sellerPage.clickRandomCat1();
+		sellerPage.clickRandomCat2();
+		sellerPage.clickRandomCat3();
+	}
 
 	public void inputInfo_Not_Other() {
 		sellerPage.uploadIMG(pathDataImage);
 		sellerPage.inputProductName(productName);
-//		sellerPage.clickCat1();
 //		sellerPage.clickRandomCat1();
-		sellerPage.clickCat2();
 //		sellerPage.clickRandomCat2();
 		sellerPage.clickRandomCat2_Not_Other();
-		sellerPage.clickCat3();
 		sellerPage.clickRandomCat3();
 	}
 
 	public void inputInfo_Other() {
 		sellerPage.uploadIMG(pathDataImage);
 		sellerPage.inputProductName(productName);
-		sellerPage.clickCat1();
 //		sellerPage.clickRandomCat1();
-		sellerPage.clickCat2();
 //		sellerPage.clickRandomCat2();
 		sellerPage.clickRandomCat2_Other();
 	}
+	
+	public void clickViewDetail() {
+	String abc = SellerPageUI.VIEW_EDIT_DETAIL2_BTN.replace("{productname}", productName);
+	sellerPage.click(abc);
+	}
 
 	public void delProd() {
-		sellerPage.clickViewDetail();
+		clickViewDetail();
 		sellerPage.clickDelProduct();
 		sellerPage.clickDelProduct_Confirm();
 	}
@@ -202,7 +210,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_013() throws InterruptedException {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.clickPostProductBTN();
 //		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
 //		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
@@ -215,7 +223,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 //	@Test
 //	public void TC_014() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.clickPostProductBTN();
 //		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
@@ -228,7 +236,7 @@ public class UploadProductScripts extends CommonTestCase {
 //
 //	@Test
 //	public void TC_015() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.clickPostProductBTN();
@@ -241,7 +249,7 @@ public class UploadProductScripts extends CommonTestCase {
 //
 //	@Test
 //	public void TC_016() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -254,7 +262,7 @@ public class UploadProductScripts extends CommonTestCase {
 //
 //	@Test
 //	public void TC_017() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -268,7 +276,7 @@ public class UploadProductScripts extends CommonTestCase {
 //
 //	@Test
 //	public void TC_018() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -282,7 +290,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_019() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -295,7 +303,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_020() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -308,7 +316,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_021() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -322,7 +330,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_022() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -336,7 +344,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_023() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -349,7 +357,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_024() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -362,7 +370,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_025() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -376,7 +384,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_026() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -390,7 +398,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_027() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -403,7 +411,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_028() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -416,7 +424,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_029() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -430,7 +438,7 @@ public class UploadProductScripts extends CommonTestCase {
 //	
 //	@Test
 //	public void TC_030() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -444,7 +452,7 @@ public class UploadProductScripts extends CommonTestCase {
 //
 //	@Test
 //	public void TC_031() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputQty(quantity_txt);
 //		sellerPage.inputPrice(price_txt);
@@ -460,10 +468,10 @@ public class UploadProductScripts extends CommonTestCase {
 //		verifyEqual(sellerPage.getText(abc), productName);
 //		delProd();
 //	}
-
+//
 	@Test
 	public void TC_032() {
-		inputInfo_Not_Other();
+		inputInfo();
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
 		sellerPage.inputPrice(price_txt);
@@ -477,13 +485,12 @@ public class UploadProductScripts extends CommonTestCase {
 		String abc = SellerPageUI.PRODUCT_NAME_LBL_2.replace("{productname}", productName);
 		sellerPage.waitVisible(abc);
 		verifyEqual(sellerPage.getText(abc), productName);
-		delProd();
 
 	}
-
+//
 //	@Test
 //	public void TC_033() {
-//		inputInfo();
+//		inputInfo_Not_Other();
 //		sellerPage.inputDes(description_txt);
 //		sellerPage.inputSku(sku_txt);
 //		sellerPage.inputQty(quantity_txt);
@@ -499,7 +506,30 @@ public class UploadProductScripts extends CommonTestCase {
 //		String abc = SellerPageUI.PRODUCT_NAME_LBL_2.replace("{productname}", productName);
 //		sellerPage.waitVisible(abc);
 //		verifyEqual(sellerPage.getText(abc), productName);
-//		delProd();
+//		clickViewDetail();
+//		
+//	}
+//	
+//	@Test
+//	public void TC_034() {
+//		inputInfo_Not_Other();
+//		sellerPage.inputDes(description_txt);
+//		sellerPage.inputSku(sku_txt);
+//		sellerPage.inputQty(quantity_txt);
+//		sellerPage.inputPrice(price_txt);
+//		sellerPage.inputDiscount(discount_txt);
+//		sellerPage.inputWeight(weight_txt);
+//		sellerPage.inputWidth(width1_txt);
+//		sellerPage.inputLength(length2_txt);
+//		sellerPage.inputHeight(height50_txt);
+//		sellerPage.clickPostProductBTN();
+//		verifyEqual(sellerPage.getTextPostSucessMSG(), post_sucess_msg);
+//		sellerPage.clickViewList();
+//		String abc = SellerPageUI.PRODUCT_NAME_LBL_2.replace("{productname}", productName);
+//		sellerPage.waitVisible(abc);
+//		verifyEqual(sellerPage.getText(abc), productName);
+//		sellerPage.click(abc);
+//		
 //	}
 
 	@AfterClass

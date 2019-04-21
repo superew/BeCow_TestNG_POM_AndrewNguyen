@@ -2,16 +2,16 @@ package com.becow.ui;
 
 public class SellerPageUI {
 	public static final String NAME_EDIT = "//input[@formcontrolname='name']";
-	public static final String DES_EDIT = "";
+	public static final String DES_EDIT = "//div[contains(@class,'fr-view')]/p";
 	public static final String SKU_EDIT = "//input[@formcontrolname='parentSku']";
 	public static final String QTY_EDIT = "//input[@formcontrolname='totalItem']";
 	public static final String PRICE_EDIT = "//input[@formcontrolname='orgPrice']";
 	public static final String DISCOUNT_EDIT = "//input[@formcontrolname='discount']";
-	public static final String NEWPRICE_EDIT = "//input[@formcontrolname='name']";
-	public static final String WEIGHT_EDIT = "//input[@formcontrolname='name']";
-	public static final String WIDTH_EDIT = "//input[@formcontrolname='name']";
-	public static final String LENGTH_EDIT = "//input[@formcontrolname='name']";
-	public static final String HEIGHT_EDIT = "//input[@formcontrolname='name']";
+	public static final String NEWPRICE_EDIT = "//input[@formcontrolname='newPrice']";
+	public static final String WEIGHT_EDIT = "//input[@formcontrolname='weight']";
+	public static final String WIDTH_EDIT = "//input[@formcontrolname='width']";
+	public static final String LENGTH_EDIT = "//input[@formcontrolname='length']";
+	public static final String HEIGHT_EDIT = "//input[@formcontrolname='height']";
 	
 	public static final String UPLOAD_PRODUCT = "//li[@class='inner-menu-mobile']/a[contains(@beetranslate,'uploadProduct')]";
 	public static final String POST_BTN = "//button[contains(@beetranslate,'action.post')]";
@@ -64,6 +64,7 @@ public class SellerPageUI {
 	public static final String PRODUCT_NAME_LBL_2 = "//div[contains(@class,'content-desc')]/p[contains(text(),'{productname}')]";
 	
 	public static final String VIEW_EDIT_DETAIL_BTN = "//a[contains(@beetranslate,'detail.viewEdit')]";
+	public static final String VIEW_EDIT_DETAIL2_BTN = "//p[contains(text(),'{productname}')]/ancestor::a//a[contains(@beetranslate,'detail.viewEdit')]";
 	
 	public static final String DEL_BTN = "//div[contains(@class,'mrgt20')]/button[contains(@beetranslate,'delete')]";
 	
@@ -73,5 +74,5 @@ public class SellerPageUI {
 	
 	public static final String DISCOUNT_TXT = "//input[@formcontrolname='discount']";
 	
-	public static final String DYNAMIC_MSG = "//label[@class='invalid']/span";
+	public static final String DYNAMIC_MSG = "//*[@beetranslate='invalid']/span";
 }
