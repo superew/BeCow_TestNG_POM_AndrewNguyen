@@ -58,6 +58,16 @@ public class SellerPage extends commonFunction {
 		waitVisible(SellerPageUI.CAT2_DROPDOWN);
 		clickRandomCombobox(SellerPageUI.CAT2_DROPDOWN);
 	}
+	
+	public void clickRandomCat2_Not_Other() {
+		waitVisible(SellerPageUI.CAT2_DROPDOWN_NOT_OTHER);
+		clickRandomCombobox(SellerPageUI.CAT2_DROPDOWN_NOT_OTHER);
+	}
+	
+	public void clickRandomCat2_Other() {
+		waitVisible(SellerPageUI.CAT2_DROPDOWN_OTHER);
+		clickRandomCombobox(SellerPageUI.CAT2_DROPDOWN_OTHER);
+	}
 
 	public void clickCat3() {
 		waitVisible(SellerPageUI.CAT3);

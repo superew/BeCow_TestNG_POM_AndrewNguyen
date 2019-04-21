@@ -1,6 +1,18 @@
 package com.becow.ui;
 
 public class SellerPageUI {
+	public static final String NAME_EDIT = "//input[@formcontrolname='name']";
+	public static final String DES_EDIT = "";
+	public static final String SKU_EDIT = "//input[@formcontrolname='parentSku']";
+	public static final String QTY_EDIT = "//input[@formcontrolname='totalItem']";
+	public static final String PRICE_EDIT = "//input[@formcontrolname='orgPrice']";
+	public static final String DISCOUNT_EDIT = "//input[@formcontrolname='discount']";
+	public static final String NEWPRICE_EDIT = "//input[@formcontrolname='name']";
+	public static final String WEIGHT_EDIT = "//input[@formcontrolname='name']";
+	public static final String WIDTH_EDIT = "//input[@formcontrolname='name']";
+	public static final String LENGTH_EDIT = "//input[@formcontrolname='name']";
+	public static final String HEIGHT_EDIT = "//input[@formcontrolname='name']";
+	
 	public static final String UPLOAD_PRODUCT = "//li[@class='inner-menu-mobile']/a[contains(@beetranslate,'uploadProduct')]";
 	public static final String POST_BTN = "//button[contains(@beetranslate,'action.post')]";
 	
@@ -15,6 +27,8 @@ public class SellerPageUI {
 	
 	public static final String CAT2 = "//div[contains(@class,'category-mid')]/button";
 	public static final String CAT2_DROPDOWN = "//div[contains(@class,'category-mid')]//li";
+	public static final String CAT2_DROPDOWN_NOT_OTHER = "//div[contains(@class,'category-mid')]//ul//a[not(contains(text(),'Khác'))]";
+	public static final String CAT2_DROPDOWN_OTHER = "//div[contains(@class,'category-mid')]//ul//a[contains(text(),'Khác')]";
 	
 	public static final String CAT3 = "//div[contains(@class,'category-right')]/button";
 	public static final String CAT3_TXT = "//span[contains(@beetranslate,'selectCate')]/span";

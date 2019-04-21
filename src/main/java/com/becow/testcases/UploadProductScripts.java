@@ -42,7 +42,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 		userCorrect = "genymotionios@gmail.com";
 		passCorrect = "1234@abcd";
-		
+
 		description_txt = "Description product";
 		sku_txt = "SKUShirt";
 		quantity_txt = "10";
@@ -91,25 +91,34 @@ public class UploadProductScripts extends CommonTestCase {
 
 	}
 
-	public void inputInfo() {
+	public void inputInfo_Not_Other() {
+		sellerPage.uploadIMG(pathDataImage);
+		sellerPage.inputProductName(productName);
+//		sellerPage.clickCat1();
+//		sellerPage.clickRandomCat1();
+		sellerPage.clickCat2();
+//		sellerPage.clickRandomCat2();
+		sellerPage.clickRandomCat2_Not_Other();
+		sellerPage.clickCat3();
+		sellerPage.clickRandomCat3();
+	}
+
+	public void inputInfo_Other() {
 		sellerPage.uploadIMG(pathDataImage);
 		sellerPage.inputProductName(productName);
 		sellerPage.clickCat1();
-		sellerPage.clickRandomCat1();
+//		sellerPage.clickRandomCat1();
 		sellerPage.clickCat2();
-		sellerPage.clickRandomCat2();
-		if (sellerPage.getTextCat3Txt().length()!=0) {
-			sellerPage.clickCat3();
-			sellerPage.clickRandomCat3();
-		} 
+//		sellerPage.clickRandomCat2();
+		sellerPage.clickRandomCat2_Other();
 	}
-	
+
 	public void delProd() {
 		sellerPage.clickViewDetail();
 		sellerPage.clickDelProduct();
 		sellerPage.clickDelProduct_Confirm();
 	}
-	
+
 	public void verifyProductName() {
 		String abc = SellerPageUI.PRODUCT_NAME_LBL_2.replace("{productname}", productName);
 		sellerPage.waitVisible(abc);
@@ -432,29 +441,29 @@ public class UploadProductScripts extends CommonTestCase {
 //		sellerPage.clickPostProductBTN();
 //		verifyEqual(sellerPage.getTextHeightMSG(), heightOutRangeMsg);
 //	}
+//
+//	@Test
+//	public void TC_031() {
+//		inputInfo();
+//		sellerPage.inputDes(description_txt);
+//		sellerPage.inputQty(quantity_txt);
+//		sellerPage.inputPrice(price_txt);
+//		sellerPage.inputWeight(weight_txt);
+//		sellerPage.inputWidth(width1_txt);
+//		sellerPage.inputLength(length2_txt);
+//		sellerPage.inputHeight(height1_txt);
+//		sellerPage.clickPostProductBTN();
+//		verifyEqual(sellerPage.getTextPostSucessMSG(), post_sucess_msg);
+//		sellerPage.clickViewList();
+//		String abc = SellerPageUI.PRODUCT_NAME_LBL_2.replace("{productname}", productName);
+//		sellerPage.waitVisible(abc);
+//		verifyEqual(sellerPage.getText(abc), productName);
+//		delProd();
+//	}
 
-	@Test
-	public void TC_031() {
-		inputInfo();
-		sellerPage.inputDes(description_txt);
-		sellerPage.inputQty(quantity_txt);
-		sellerPage.inputPrice(price_txt);
-		sellerPage.inputWeight(weight_txt);
-		sellerPage.inputWidth(width1_txt);
-		sellerPage.inputLength(length2_txt);
-		sellerPage.inputHeight(height1_txt);
-		sellerPage.clickPostProductBTN();
-		verifyEqual(sellerPage.getTextPostSucessMSG(), post_sucess_msg);
-		sellerPage.clickViewList();
-		String abc = SellerPageUI.PRODUCT_NAME_LBL_2.replace("{productname}", productName);
-		sellerPage.waitVisible(abc);
-		verifyEqual(sellerPage.getText(abc), productName);
-		delProd();
-	}
-	
 	@Test
 	public void TC_032() {
-		inputInfo();
+		inputInfo_Not_Other();
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
 		sellerPage.inputPrice(price_txt);
@@ -471,27 +480,27 @@ public class UploadProductScripts extends CommonTestCase {
 		delProd();
 
 	}
-	
-	@Test
-	public void TC_033() {
-		inputInfo();
-		sellerPage.inputDes(description_txt);
-		sellerPage.inputSku(sku_txt);
-		sellerPage.inputQty(quantity_txt);
-		sellerPage.inputPrice(price_txt);
-		sellerPage.inputDiscount(discount_txt);
-		sellerPage.inputWeight(weight_txt);
-		sellerPage.inputWidth(width1_txt);
-		sellerPage.inputLength(length2_txt);
-		sellerPage.inputHeight(height50_txt);
-		sellerPage.clickPostProductBTN();
-		verifyEqual(sellerPage.getTextPostSucessMSG(), post_sucess_msg);
-		sellerPage.clickViewList();
-		String abc = SellerPageUI.PRODUCT_NAME_LBL_2.replace("{productname}", productName);
-		sellerPage.waitVisible(abc);
-		verifyEqual(sellerPage.getText(abc), productName);
-		delProd();
-	}
+
+//	@Test
+//	public void TC_033() {
+//		inputInfo();
+//		sellerPage.inputDes(description_txt);
+//		sellerPage.inputSku(sku_txt);
+//		sellerPage.inputQty(quantity_txt);
+//		sellerPage.inputPrice(price_txt);
+//		sellerPage.inputDiscount(discount_txt);
+//		sellerPage.inputWeight(weight_txt);
+//		sellerPage.inputWidth(width1_txt);
+//		sellerPage.inputLength(length2_txt);
+//		sellerPage.inputHeight(height50_txt);
+//		sellerPage.clickPostProductBTN();
+//		verifyEqual(sellerPage.getTextPostSucessMSG(), post_sucess_msg);
+//		sellerPage.clickViewList();
+//		String abc = SellerPageUI.PRODUCT_NAME_LBL_2.replace("{productname}", productName);
+//		sellerPage.waitVisible(abc);
+//		verifyEqual(sellerPage.getText(abc), productName);
+//		delProd();
+//	}
 
 	@AfterClass
 	public void afterClass() {
