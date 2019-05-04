@@ -8,6 +8,7 @@ import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
@@ -20,11 +21,16 @@ public class CommonTestCase {
 
 	public WebDriver openMultiBrowser(String browser, String version, String url) {
 		if (browser.equals("chrome")) {
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--disable-notifications");
 			ChromeDriverManager.getInstance().version(version).setup();
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(options);
 			driver.get(url);
 			driver.manage().window().maximize();
+			
 		} else if (browser.equals("firefox")) {
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--disable-notifications");
 			FirefoxDriverManager.getInstance().version(version).setup();
 			driver = new FirefoxDriver();
 			driver.get(url);
@@ -40,6 +46,10 @@ public class CommonTestCase {
 	}
 
 	public void verifyEqual(String actual, String expected) {
+		assertEquals(actual, expected);
+	}
+	
+	public void verifyEqual(int actual, int expected) {
 		assertEquals(actual, expected);
 	}
 

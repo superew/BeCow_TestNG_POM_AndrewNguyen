@@ -15,6 +15,7 @@ public class SellerPageUI {
 	
 	public static final String UPLOAD_PRODUCT = "//li[@class='inner-menu-mobile']/a[contains(@beetranslate,'uploadProduct')]";
 	public static final String POST_BTN = "//button[contains(@beetranslate,'action.post')]";
+	public static final String UPDATE_BTN = "//button[contains(@beetranslate,'update')]";
 	
 	public static final String IMG_UPLOAD = "//div[@id='upload-empty']//input[@name='qqfile']";
 	public static final String IMG_MSG = "//label[contains(@beetranslate,'chooseImage')]/span";
@@ -57,14 +58,18 @@ public class SellerPageUI {
 	public static final String HEIGHT_MSG = "//label[contains(@beetranslate,'height')]/span";
 	
 	public static final String POST_SUCESS_MSG = "//p[contains(@beetranslate,'postSuccess')]/span";
+	public static final String UPDATE_SUCESS_MSG = "//p[contains(@beetranslate,'updateSuccess')]/span";
 	
 	public static final String VIEW_LIST_BTN = "//button[contains(@beetranslate,'viewList')]/span";
 	
 	public static final String PRODUCT_NAME_LBL = "//div[contains(@class,'content-desc')]/p[@class='pro-name']";
 	public static final String PRODUCT_NAME_LBL_2 = "//div[contains(@class,'content-desc')]/p[contains(text(),'{productname}')]";
 	
-	public static final String VIEW_EDIT_DETAIL_BTN = "//a[contains(@beetranslate,'detail.viewEdit')]";
+	public static final String VIEW_EDIT_DETAIL_BTN = "//*[contains(@beetranslate,'detail.viewEdit')]";
 	public static final String VIEW_EDIT_DETAIL2_BTN = "//p[contains(text(),'{productname}')]/ancestor::a//a[contains(@beetranslate,'detail.viewEdit')]";
+	public static final String VIEW_EDIT_DETAIL3_BTN = "//p[contains(text(),'{productname}')]/ancestor::a//div[@id='edit-product']";
+	public static final String VIEW_DETAIL_PROD = "//button[contains(@beetranslate,'viewProduct')]/span";
+	
 	
 	public static final String DEL_BTN = "//div[contains(@class,'mrgt20')]/button[contains(@beetranslate,'delete')]";
 	
@@ -73,6 +78,12 @@ public class SellerPageUI {
 	public static final String SKU_TXT = "//input[@id='org-sku']";
 	
 	public static final String DISCOUNT_TXT = "//input[@formcontrolname='discount']";
+	
+	public static final String QTY_EDIT_BTN = "//div[contains(@class,'edit-quantity')]/span";
+	public static final String QTY_EDIT_TXT ="//div[@id='edit-qty']//input";
+	public static final String QTY_CONFIRM_BTN = "//div[@id='edit-qty']//button[contains(@beetranslate,'confirm')]";
+	
+	public static final String DETAIL_SOLDOUT = "//span[contains(@beetranslate,'Soldout')]/span";
 	
 	public static final String DYNAMIC_MSG = "//*[@beetranslate='invalid']/span";
 }

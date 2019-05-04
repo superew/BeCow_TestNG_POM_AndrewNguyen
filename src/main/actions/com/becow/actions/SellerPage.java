@@ -1,7 +1,7 @@
 package com.becow.actions;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import com.becow.ui.SellerPageUI;
 
@@ -11,6 +11,8 @@ public class SellerPage extends commonFunction {
 	public SellerPage(WebDriver driver) {
 		super(driver);
 	}
+	
+	HomePage homePage;
 
 	public void clickUploadProduct() {
 		waitVisible(SellerPageUI.UPLOAD_PRODUCT);
@@ -63,32 +65,24 @@ public class SellerPage extends commonFunction {
 		waitVisible(SellerPageUI.CAT2_DROPDOWN);
 		clickRandomCombobox(SellerPageUI.CAT2_DROPDOWN);
 	}
-	
+
 	public void clickRandomCat2_Not_Other() {
 		waitVisible(SellerPageUI.CAT2_DROPDOWN_NOT_OTHER);
 		clickRandomCombobox(SellerPageUI.CAT2_DROPDOWN_NOT_OTHER);
 	}
-	
+
 	public void clickRandomCat2_Other() {
 		waitVisible(SellerPageUI.CAT2_DROPDOWN_OTHER);
 		clickRandomCombobox(SellerPageUI.CAT2_DROPDOWN_OTHER);
 	}
 
-//	public void clickCat3() {
-//		waitVisible(SellerPageUI.CAT3);
-//		click(SellerPageUI.CAT3);
-//		waitVisible(SellerPageUI.CAT3_DROPDOWN);
-//	}
-
 	public void clickRandomCat3() {
-		Boolean isPresent = driver.findElements(By.xpath(SellerPageUI.CAT3)).size() > 0;
-		if(isPresent==true) {
+		if (verifyElement()) {
 			waitVisible(SellerPageUI.CAT3);
 			click(SellerPageUI.CAT3);
 			waitVisible(SellerPageUI.CAT3_DROPDOWN);
 			clickRandomCombobox(SellerPageUI.CAT3_DROPDOWN);
 		}
-		
 	}
 
 	public void clickViewList() {
@@ -100,6 +94,11 @@ public class SellerPage extends commonFunction {
 		waitVisible(SellerPageUI.VIEW_EDIT_DETAIL2_BTN);
 		click(SellerPageUI.VIEW_EDIT_DETAIL2_BTN);
 	}
+	
+	public void clickViewDetailProd() {
+		waitVisible(SellerPageUI.VIEW_EDIT_DETAIL_BTN);
+		click(SellerPageUI.VIEW_EDIT_DETAIL_BTN);
+	}
 
 	public void clickDelProduct() {
 		waitVisible(SellerPageUI.DEL_BTN);
@@ -109,6 +108,32 @@ public class SellerPage extends commonFunction {
 	public void clickDelProduct_Confirm() {
 		waitVisible(SellerPageUI.DEL_CONFIRM_BTN);
 		click(SellerPageUI.DEL_CONFIRM_BTN);
+	}
+	
+	public void clickEditQty() {
+		waitVisible(SellerPageUI.QTY_EDIT_BTN);
+		click(SellerPageUI.QTY_EDIT_BTN);
+	}
+	
+	public void clickConfirmQty() {
+		waitVisible(SellerPageUI.QTY_CONFIRM_BTN);
+		click(SellerPageUI.QTY_CONFIRM_BTN);
+	}
+	
+	public void clickUpdateProduct() {
+		waitVisible(SellerPageUI.UPDATE_BTN);
+		click(SellerPageUI.UPDATE_BTN);
+	}
+	
+	public void clickViewDetailProduct() {
+		waitVisible(SellerPageUI.VIEW_DETAIL_PROD);
+		click(SellerPageUI.VIEW_DETAIL_PROD);
+	}
+	
+	public void inputQtyEdit(String value) {
+		waitVisible(SellerPageUI.QTY_EDIT_TXT);
+		clear(SellerPageUI.QTY_EDIT_TXT);
+		input(SellerPageUI.QTY_EDIT_TXT, value);
 	}
 
 	public void inputDes(String value) {
@@ -123,10 +148,16 @@ public class SellerPage extends commonFunction {
 		input(SellerPageUI.QTY_TXT, value);
 	}
 
-	public void inputPrice(String value) {
+	public void inputPrice(int value) {
 		waitVisible(SellerPageUI.PRICE_TXT);
 		clear(SellerPageUI.PRICE_TXT);
-		input(SellerPageUI.PRICE_TXT, value);
+		inputNum(SellerPageUI.PRICE_TXT, value);
+	}
+	
+	public void inputDiscount(int value) {
+		waitVisible(SellerPageUI.DISCOUNT_TXT);
+		clear(SellerPageUI.DISCOUNT_TXT);
+		inputNum(SellerPageUI.DISCOUNT_TXT, value);
 	}
 
 	public void inputWeight(String value) {
@@ -152,18 +183,14 @@ public class SellerPage extends commonFunction {
 		clear(SellerPageUI.HEIGHT_TXT);
 		input(SellerPageUI.HEIGHT_TXT, value);
 	}
-	
+
 	public void inputSku(String value) {
 		waitVisible(SellerPageUI.SKU_TXT);
 		clear(SellerPageUI.SKU_TXT);
 		input(SellerPageUI.SKU_TXT, value);
 	}
+
 	
-	public void inputDiscount(String value) {
-		waitVisible(SellerPageUI.DISCOUNT_TXT);
-		clear(SellerPageUI.DISCOUNT_TXT);
-		input(SellerPageUI.DISCOUNT_TXT, value);
-	}
 
 	public String getTextImgMSG() {
 		waitVisible(SellerPageUI.IMG_MSG);
@@ -219,20 +246,83 @@ public class SellerPage extends commonFunction {
 		waitVisible(SellerPageUI.POST_SUCESS_MSG);
 		return getText(SellerPageUI.POST_SUCESS_MSG);
 	}
+	
+	public String getTextUpdateSucessMSG() {
+		waitVisible(SellerPageUI.UPDATE_SUCESS_MSG);
+		return getText(SellerPageUI.UPDATE_SUCESS_MSG);
+	}
 
 	public String getTextProductNameLbl() {
 		waitVisible(SellerPageUI.PRODUCT_NAME_LBL);
 		return getText(SellerPageUI.PRODUCT_NAME_LBL);
 	}
-	
+
 	public String getTextCat3Txt() {
 		waitVisible(SellerPageUI.CAT3_TXT);
 		return getText(SellerPageUI.CAT3_TXT);
 	}
-	
-	//Get text in Edit Product
-	public String getTextName() {
-		waitVisible(SellerPageUI.NAME_EDIT);
-		return getText(SellerPageUI.NAME_EDIT);
+
+	// Get text in Edit Product
+
+	public String getTextDynamicJquery(String js) throws InterruptedException {
+		Thread.sleep(1000);
+		return getTextjQuery(js);
 	}
+	
+	public String getTextDesEdit() {
+		waitVisible(SellerPageUI.DES_EDIT);
+		return getText(SellerPageUI.DES_EDIT);
+	}
+	
+	public String getTextDiscountEdit() {
+		waitVisible(SellerPageUI.DISCOUNT_EDIT);
+		return getText(SellerPageUI.DISCOUNT_EDIT);
+	}
+	
+	public String gettextNewPriceEdit() {
+		waitVisible(SellerPageUI.NEWPRICE_EDIT);
+		return getText(SellerPageUI.NEWPRICE_EDIT);
+	}
+	
+	public String gettextWeightEdit() {
+		waitVisible(SellerPageUI.WEIGHT_EDIT);
+		return getText(SellerPageUI.WEIGHT_EDIT);
+	}
+	
+	public String gettextDetailSoldout() {
+		waitVisible(SellerPageUI.DETAIL_SOLDOUT);
+		return getText(SellerPageUI.DETAIL_SOLDOUT);
+	}
+	
+	public void inputInfo(String pathDataImage, String productName) {
+		uploadIMG(pathDataImage);
+		inputProductName(productName);
+		clickRandomCat1();
+		clickRandomCat2();
+		clickRandomCat3();
+	}
+	
+	public void clickViewDetailAfterCreate(String productName) {
+		String abc = SellerPageUI.VIEW_EDIT_DETAIL2_BTN.replace("{productname}", productName);
+		waitVisible(abc);
+		click(abc);
+	}
+
+	public void delProd(String productName) {
+		driver.get("https://www.beecow.com/market");
+		homePage = PageFactory.initElements(driver, HomePage.class);
+		homePage.clickSellerPage();
+		String abc = SellerPageUI.VIEW_EDIT_DETAIL2_BTN.replace("{productname}", productName);
+		waitVisible(abc);
+		click(abc);
+		clickDelProduct();
+		clickDelProduct_Confirm();
+	}
+	
+	public String getProductName(String productName) {
+		String abc = SellerPageUI.PRODUCT_NAME_LBL_2.replace("{productname}", productName);
+		waitVisible(abc);
+		return getText(abc);
+	}
+
 }

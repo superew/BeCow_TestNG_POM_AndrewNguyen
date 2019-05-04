@@ -21,6 +21,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.becow.ui.SellerPageUI;
+
 public class commonFunction extends BasePage {
 	public commonFunction(WebDriver driver) {
 		super(driver);
@@ -323,6 +325,14 @@ public class commonFunction extends BasePage {
 		selects.get(list).click();
 	}
 	
-
+	public boolean verifyElement() {
+		Boolean isPresent = driver.findElements(By.xpath(SellerPageUI.CAT3)).size() > 0;
+		return isPresent;
+	}
+	
+	public void inputNum(String locator, int value) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.sendKeys(Integer.toString(value));
+	}
 
 }
