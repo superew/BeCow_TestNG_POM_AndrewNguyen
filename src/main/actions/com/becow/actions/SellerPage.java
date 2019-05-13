@@ -1,6 +1,9 @@
 package com.becow.actions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import com.becow.ui.SellerPageUI;
@@ -226,6 +229,11 @@ public class SellerPage extends commonFunction {
 		waitVisible(SellerPageUI.WEIGHT_MSG);
 		return getText(SellerPageUI.WEIGHT_MSG);
 	}
+	
+	public String getTextWeightOutRangeMSG() {
+		waitVisible(SellerPageUI.WEIGHT_OUT_RANGE_MSG);
+		return getText(SellerPageUI.WEIGHT_OUT_RANGE_MSG);
+	}
 
 	public String getTextWidthMSG() {
 		waitVisible(SellerPageUI.WIDTH_MSG);
@@ -308,15 +316,24 @@ public class SellerPage extends commonFunction {
 		click(abc);
 	}
 
-	public void delProd(String productName) {
+	public void delProd(String productName) throws InterruptedException {
 		driver.get("https://www.beecow.com/market");
 		homePage = PageFactory.initElements(driver, HomePage.class);
 		homePage.clickSellerPage();
+		
+		String aaa = SellerPageUI.HOVER_PRODUCT_NAME.replace("{productname}", productName);
+		Thread.sleep(2000);
+		waitVisible(aaa);
+		hoverProductName(aaa);
+		
 		String abc = SellerPageUI.VIEW_EDIT_DETAIL2_BTN.replace("{productname}", productName);
+		Thread.sleep(2000);
 		waitVisible(abc);
 		click(abc);
+		
 		clickDelProduct();
 		clickDelProduct_Confirm();
+		Thread.sleep(2000);
 	}
 	
 	public String getProductName(String productName) {

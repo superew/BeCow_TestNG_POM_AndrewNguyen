@@ -10,14 +10,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
 
-
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 
 public class CommonTestCase {
 	WebDriver driver;
+	ExtentHtmlReporter htmlReport;
+    ExtentReports extent;
+	ExtentTest test;
 
 	public WebDriver openMultiBrowser(String browser, String version, String url) {
 		if (browser.equals("chrome")) {
@@ -37,6 +44,22 @@ public class CommonTestCase {
 			driver.manage().window().maximize();
 		}
 		return driver;
+	}
+	
+	public void getResult(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			test.log(Status.FAIL, "Test Case Failed is " + result.getName());
+			test.log(Status.FAIL, "Test Case Failed is " + result.getThrowable());
+		} else if (result.getStatus() == ITestResult.SUCCESS) {
+			test.log(Status.PASS, "Test Case Passed is " + result.getName());
+		} else if (result.getStatus() == ITestResult.SKIP) {
+			test.log(Status.SKIP, "Test Case Skipped is " + result.getName());
+		}
+	}
+	
+	public void exportReport() {
+		extent.flush();
+		extent.close();
 	}
 
 	public String randomEmail() {

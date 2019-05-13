@@ -334,5 +334,12 @@ public class commonFunction extends BasePage {
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.sendKeys(Integer.toString(value));
 	}
+	
+	public void hoverProductName(String locator) {
+		WebElement hoverElement = driver.findElement(By.xpath(locator));
+		Actions action = new Actions(driver);
+		action.moveToElement(hoverElement).perform();
+
+	}
 
 }

@@ -2,7 +2,9 @@ package com.becow.testcases;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -10,7 +12,6 @@ import org.testng.annotations.Test;
 
 import com.becow.actions.HomePage;
 import com.becow.actions.SellerPage;
-import com.becow.ui.SellerPageUI;
 
 import CommonPage.CommonTestCase;
 
@@ -88,8 +89,11 @@ public class UploadProductScripts extends CommonTestCase {
 		post_sucess_msg = "Bạn đã đăng thành công sản phẩm này";
 		update_sucess_msg = "Bạn đã cập nhật thành công sản phẩm này";
 		sold_out_msg = "Hết hàng";
-		
-		pathDataImage = "C:\\Users\\dunghvnguyen\\Desktop\\linh tinh\\test1.jpg";
+
+		String userPath = System.getProperty("user.dir");
+		pathDataImage = userPath.concat("\\Data\\test1.jpg");
+
+//		pathDataImage = "C:\\Users\\dunghvnguyen\\Desktop\\linh tinh\\test1.jpg";
 
 	}
 
@@ -100,317 +104,318 @@ public class UploadProductScripts extends CommonTestCase {
 
 	}
 
-//	@Test
-//	public void TC_008() {
-//		verifyEqual(driver.getCurrentUrl(), "https://www.beecow.com/page/upload-product");
-//	}
-//
-//	@Test
-//	public void TC_009() {
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextImgMSG(), imgUploadMsg);
-//		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
-//		verifyEqual(sellerPage.getTextProductNameMSG(), nameProdMsg);
-//		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
-//		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
-//		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
-//		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//
-//	@Test
-//	public void TC_010() throws InterruptedException {
-//		sellerPage.uploadIMG(pathDataImage);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
-//		verifyEqual(sellerPage.getTextProductNameMSG(), nameProdMsg);
-//		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
-//		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
-//		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
-//		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//
-//	@Test
-//	public void TC_011() throws InterruptedException {
-//		sellerPage.uploadIMG(pathDataImage);
-//		sellerPage.inputProductName(productName);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
-//		verifyEqual(sellerPage.getTextProductNameMSG(), nameProdMsg);
-//		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
-//		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
-//		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
-//		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//
-//	@Test
-//	public void TC_012() throws InterruptedException {
-//		sellerPage.uploadIMG(pathDataImage);
-//		sellerPage.inputProductName(productName);
-//		sellerPage.clickRandomCat1();
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
-//		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
-//		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
-//		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
-//		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_013() throws InterruptedException {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
-//		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
-//		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
-//		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//
-//	@Test
-//	public void TC_014() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
-//		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
-//		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//
-//	@Test
-//	public void TC_015() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
-//		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//
-//	@Test
-//	public void TC_016() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//
-//	@Test
-//	public void TC_017() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight49_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextWeightMSG(), weightOutRangeMsg);
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//
-//	@Test
-//	public void TC_018() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight10001_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextWeightMSG(), weightOutRangeMsg);
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_019() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight50_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_020() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_021() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.inputWidth(widthOutRange1_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextWidthMSG(), widthOutRangeMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_022() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.inputWidth(widthOutRange2_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextWidthMSG(), widthOutRangeMsg);
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_023() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.inputWidth(width2_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_024() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.inputWidth(width1_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_025() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.inputWidth(width1_txt);
-//		sellerPage.inputLength(lengthOutRange1_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextLengthMSG(), lengthOutRangeMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_026() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.inputWidth(width1_txt);
-//		sellerPage.inputLength(lengthOutRange2_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextLengthMSG(), lengthOutRangeMsg);
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_027() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.inputWidth(width1_txt);
-//		sellerPage.inputLength(length1_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_028() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.inputWidth(width1_txt);
-//		sellerPage.inputLength(length2_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
-//	}
-//	
-//	@Test
-//	public void TC_029() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.inputWidth(width1_txt);
-//		sellerPage.inputLength(length2_txt);
-//		sellerPage.inputHeight(height0_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextHeightMSG(), heightOutRangeMsg);
-//	}
-//	
-//	@Test
-//	public void TC_030() {
-//		sellerPage.inputInfo(pathDataImage, productName);
-//		sellerPage.inputDes(description_txt);
-//		sellerPage.inputQty(quantity_txt);
-//		sellerPage.inputPrice(price_txt);
-//		sellerPage.inputWeight(weight_txt);
-//		sellerPage.inputWidth(width1_txt);
-//		sellerPage.inputLength(length2_txt);
-//		sellerPage.inputHeight(height51_txt);
-//		sellerPage.clickPostProductBTN();
-//		verifyEqual(sellerPage.getTextHeightMSG(), heightOutRangeMsg);
-//	}
+	@Test
+	public void TC_008() {
+		verifyEqual(driver.getCurrentUrl(), "https://www.beecow.com/page/upload-product");
+	}
 
 	@Test
-	public void TC_031() {
+	public void TC_009() {
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextImgMSG(), imgUploadMsg);
+		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
+		verifyEqual(sellerPage.getTextProductNameMSG(), nameProdMsg);
+		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
+		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
+		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
+		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+
+	@Test
+	public void TC_010() throws InterruptedException {
+		sellerPage.uploadIMG(pathDataImage);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
+		verifyEqual(sellerPage.getTextProductNameMSG(), nameProdMsg);
+		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
+		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
+		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
+		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+
+	@Test
+	public void TC_011() throws InterruptedException {
+		sellerPage.uploadIMG(pathDataImage);
+		sellerPage.inputProductName(productName);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
+//		verifyEqual(sellerPage.getTextProductNameMSG(), nameProdMsg);
+		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
+		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
+		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
+		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+
+	@Test
+	public void TC_012() throws InterruptedException {
+		sellerPage.uploadIMG(pathDataImage);
+		sellerPage.inputProductName(productName);
+		sellerPage.clickRandomCat1();
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
+		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
+		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
+		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
+		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_013() throws InterruptedException {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
+		verifyEqual(sellerPage.getTextDesMSG(), desProdMsg);
+		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
+		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+
+	@Test
+	public void TC_014() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
+		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
+		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+
+	@Test
+	public void TC_015() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextPriceMSG(), priceProdMsg);
+		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+
+	@Test
+	public void TC_016() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextWeightMSG(), weightProdMsg);
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+
+	@Test
+	public void TC_017() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight49_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextWeightOutRangeMSG(), weightOutRangeMsg);
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+
+	@Test
+	public void TC_018() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight10001_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextWeightOutRangeMSG(), weightOutRangeMsg);
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_019() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight50_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_020() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextWidthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_021() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.inputWidth(widthOutRange1_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextWidthMSG(), widthOutRangeMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_022() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.inputWidth(widthOutRange2_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextWidthMSG(), widthOutRangeMsg);
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_023() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.inputWidth(width2_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_024() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.inputWidth(width1_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextLengthMSG(), requiredMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_025() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.inputWidth(width1_txt);
+		sellerPage.inputLength(lengthOutRange1_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextLengthMSG(), lengthOutRangeMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_026() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.inputWidth(width1_txt);
+		sellerPage.inputLength(lengthOutRange2_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextLengthMSG(), lengthOutRangeMsg);
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_027() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.inputWidth(width1_txt);
+		sellerPage.inputLength(length1_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_028() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.inputWidth(width1_txt);
+		sellerPage.inputLength(length2_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextHeightMSG(), requiredMsg);
+	}
+	
+	@Test
+	public void TC_029() {
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.inputWidth(width1_txt);
+		sellerPage.inputLength(length2_txt);
+		sellerPage.inputHeight(height0_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextHeightMSG(), heightOutRangeMsg);
+	}
+	
+	@Test
+	public void TC_030() {
+		System.out.println("Start TC 30");
+		sellerPage.inputInfo(pathDataImage, productName);
+		sellerPage.inputDes(description_txt);
+		sellerPage.inputQty(quantity_txt);
+		sellerPage.inputPrice(price_txt);
+		sellerPage.inputWeight(weight_txt);
+		sellerPage.inputWidth(width1_txt);
+		sellerPage.inputLength(length2_txt);
+		sellerPage.inputHeight(height51_txt);
+		sellerPage.clickPostProductBTN();
+		verifyEqual(sellerPage.getTextHeightMSG(), heightOutRangeMsg);
+	}
+
+	@Test
+	public void TC_031() throws InterruptedException {
 		System.out.println("Start TC 31 with Product name = " + productName);
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
@@ -429,7 +434,7 @@ public class UploadProductScripts extends CommonTestCase {
 	}
 
 	@Test
-	public void TC_032() {
+	public void TC_032() throws InterruptedException {
 		System.out.println("Start TC 32 with Product name = " + productName);
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
@@ -468,37 +473,37 @@ public class UploadProductScripts extends CommonTestCase {
 
 		String aaa = sellerPage.getProductName(productName);
 		verifyEqual(aaa, productName);
-		
+
 		sellerPage.clickViewDetailAfterCreate(productName);
-		
+
 		String textProName = sellerPage.getTextDynamicJquery("return $('#name').val()");
 		String textDes = sellerPage.getTextDesEdit();
 		String textSku = sellerPage.getTextDynamicJquery("return $('#org-sku').val()");
 		String textQty = sellerPage.getTextDynamicJquery("return $('input[formcontrolname=\"totalItem\"]').val()");
-		
+
 		String textPrice = sellerPage.getTextDynamicJquery("return $('#original-price').val()");
 		String textPrice2 = textPrice.replace(",", "");
 		int priceToNum = Integer.parseInt(textPrice2);
-		
+
 		String textDiscount = sellerPage.getTextDynamicJquery("return $('input[formcontrolname=\"discount\"]').val()");
 		int discountToNum = Integer.parseInt(textDiscount);
-		
+
 		String textNewPrice = sellerPage.getTextDynamicJquery("return $('input[formcontrolname=\"newPrice\"]').val()");
 		String textNewPrice2 = textNewPrice.replace(",", "");
 		int newPriceToNum = Integer.parseInt(textNewPrice2);
-		
-		int newprice = (price_txt*1000) - ((price_txt*1000)*10/100);
-		
+
+		int newprice = (price_txt * 1000) - ((price_txt * 1000) * discount_txt / 100);
+
 		String textWeight = sellerPage.getTextDynamicJquery("return $('input[formcontrolname*=\"weight\"]').val()");
 		String textWidth = sellerPage.getTextDynamicJquery("return $('input[formcontrolname*=\"width\"]').val()");
 		String textLength = sellerPage.getTextDynamicJquery("return $('input[formcontrolname*=\"length\"]').val()");
 		String textHeight = sellerPage.getTextDynamicJquery("return $('input[formcontrolname*=\"height\"]').val()");
-		
+
 		verifyEqual(textProName, productName);
 		verifyEqual(textDes, description_txt);
 		verifyEqual(textSku, sku_txt);
 		verifyEqual(textQty, quantity_txt);
-		verifyEqual(priceToNum, price_txt*1000);
+		verifyEqual(priceToNum, price_txt * 1000);
 		verifyEqual(discountToNum, discount_txt);
 		verifyEqual(newPriceToNum, newprice);
 		verifyEqual(textWeight, weight_txt);
@@ -506,10 +511,10 @@ public class UploadProductScripts extends CommonTestCase {
 		verifyEqual(textLength, length2_txt);
 		verifyEqual(textHeight, height50_txt);
 		sellerPage.delProd(productName);
-	}	
-	
+	}
+
 	@Test
-	public void TC_034() {
+	public void TC_034() throws InterruptedException {
 		System.out.println("Start TC 34 with Product name = " + productName);
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
@@ -527,7 +532,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 		String aaa = sellerPage.getProductName(productName);
 		verifyEqual(aaa, productName);
-		
+
 		sellerPage.clickViewDetailAfterCreate(productName);
 		sellerPage.clickEditQty();
 		sellerPage.inputQtyEdit("0");
@@ -539,9 +544,15 @@ public class UploadProductScripts extends CommonTestCase {
 		sellerPage.delProd(productName);
 	}
 
+	@AfterMethod
+	public void afterMethod(ITestResult result) {
+		getResult(result);
+	}
+
 	@AfterClass
 	public void afterClass() {
-//		closeBrowser();
+		exportReport();
+		closeBrowser();
 	}
 
 }

@@ -47,6 +47,7 @@ public class SellerPageUI {
 	
 	public static final String WEIGHT_TXT = "//input[@formcontrolname='weight']";
 	public static final String WEIGHT_MSG = "//label[contains(@beetranslate,'shipping.require')]/span";
+	public static final String WEIGHT_OUT_RANGE_MSG = "//label[contains(@beetranslate,'shipping.range')]/span";
 	
 	public static final String WIDTH_TXT = "//input[@formcontrolname='width']";
 	public static final String WIDTH_MSG = "//label[contains(@beetranslate,'width')]/span";
@@ -67,6 +68,7 @@ public class SellerPageUI {
 	
 	public static final String VIEW_EDIT_DETAIL_BTN = "//*[contains(@beetranslate,'detail.viewEdit')]";
 	public static final String VIEW_EDIT_DETAIL2_BTN = "//p[contains(text(),'{productname}')]/ancestor::a//a[contains(@beetranslate,'detail.viewEdit')]";
+	public static final String HOVER_PRODUCT_NAME = "//p[contains(text(),'{productname}')]/ancestor::a//div[contains(@class,'img-demo')]";
 	public static final String VIEW_EDIT_DETAIL3_BTN = "//p[contains(text(),'{productname}')]/ancestor::a//div[@id='edit-product']";
 	public static final String VIEW_DETAIL_PROD = "//button[contains(@beetranslate,'viewProduct')]/span";
 	
