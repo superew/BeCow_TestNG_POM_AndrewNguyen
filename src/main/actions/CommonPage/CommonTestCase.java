@@ -4,6 +4,9 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
@@ -16,6 +19,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.ChartLocation;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
@@ -57,9 +62,29 @@ public class CommonTestCase {
 		}
 	}
 	
+	public void logTestCase(String name) {
+		test = extent.createTest(name);
+	}
+	
 	public void exportReport() {
 		extent.flush();
 		extent.close();
+	}
+	
+	public void initialReport(String report) {
+		htmlReport = new ExtentHtmlReporter(
+				System.getProperty("user.dir").concat("/test-output/ExtendReport/" + report));
+		extent = new ExtentReports();
+		extent.attachReporter(htmlReport);
+		htmlReport.config().setReportName("Regression Testing");
+		htmlReport.config().setTheme(Theme.STANDARD);
+		htmlReport.config().setTestViewChartLocation(ChartLocation.TOP);
+	}
+	
+	public String getDateTime() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+		Date date = new Date();
+		return dateFormat.format(date);
 	}
 
 	public String randomEmail() {

@@ -38,6 +38,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@BeforeClass
 	public void beforeClass(String browser, String version, String url) throws InterruptedException {
+		initialReport("UploadProductScripts_" + getDateTime() + ".html");
 		driver = openMultiBrowser(browser, version, url);
 		homePage = PageFactory.initElements(driver, HomePage.class);
 		homePage.clickLoginMenu();
@@ -106,11 +107,13 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_008() {
+		logTestCase("TC_008");
 		verifyEqual(driver.getCurrentUrl(), "https://www.beecow.com/page/upload-product");
 	}
 
 	@Test
 	public void TC_009() {
+		logTestCase("TC_009");
 		sellerPage.clickPostProductBTN();
 		verifyEqual(sellerPage.getTextImgMSG(), imgUploadMsg);
 		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
@@ -126,6 +129,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_010() throws InterruptedException {
+		logTestCase("TC_010");
 		sellerPage.uploadIMG(pathDataImage);
 		sellerPage.clickPostProductBTN();
 		verifyEqual(sellerPage.getTextCatMSG(), catProdMsg);
@@ -141,6 +145,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_011() throws InterruptedException {
+		logTestCase("TC_011");
 		sellerPage.uploadIMG(pathDataImage);
 		sellerPage.inputProductName(productName);
 		sellerPage.clickPostProductBTN();
@@ -157,6 +162,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_012() throws InterruptedException {
+		logTestCase("TC_012");
 		sellerPage.uploadIMG(pathDataImage);
 		sellerPage.inputProductName(productName);
 		sellerPage.clickRandomCat1();
@@ -173,6 +179,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_013() throws InterruptedException {
+		logTestCase("TC_013");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.clickPostProductBTN();
 		verifyEqual(sellerPage.getTextQtyMSG(), qtyProdMsg);
@@ -186,6 +193,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_014() {
+		logTestCase("TC_014");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.clickPostProductBTN();
@@ -199,6 +207,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_015() {
+		logTestCase("TC_015");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -212,6 +221,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_016() {
+		logTestCase("TC_016");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -225,6 +235,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_017() {
+		logTestCase("TC_017");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -239,6 +250,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_018() {
+		logTestCase("TC_018");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -253,6 +265,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_019() {
+		logTestCase("TC_019");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -266,6 +279,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_020() {
+		logTestCase("TC_020");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -279,6 +293,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_021() {
+		logTestCase("TC_021");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -293,6 +308,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_022() {
+		logTestCase("TC_022");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -307,6 +323,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_023() {
+		logTestCase("TC_023");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -320,6 +337,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_024() {
+		logTestCase("TC_024");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -333,6 +351,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_025() {
+		logTestCase("TC_025");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -347,6 +366,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_026() {
+		logTestCase("TC_026");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -361,6 +381,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_027() {
+		logTestCase("TC_027");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -374,6 +395,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_028() {
+		logTestCase("TC_028");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -387,6 +409,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_029() {
+		logTestCase("TC_029");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
 		sellerPage.inputQty(quantity_txt);
@@ -401,6 +424,7 @@ public class UploadProductScripts extends CommonTestCase {
 	
 	@Test
 	public void TC_030() {
+		logTestCase("TC_030");
 		System.out.println("Start TC 30");
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
@@ -416,6 +440,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_031() throws InterruptedException {
+		logTestCase("TC_031");
 		System.out.println("Start TC 31 with Product name = " + productName);
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
@@ -435,6 +460,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_032() throws InterruptedException {
+		logTestCase("TC_032");
 		System.out.println("Start TC 32 with Product name = " + productName);
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
@@ -456,6 +482,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_033() throws Exception {
+		logTestCase("TC_033");
 		System.out.println("Start TC 33 with Product name = " + productName);
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
@@ -515,6 +542,7 @@ public class UploadProductScripts extends CommonTestCase {
 
 	@Test
 	public void TC_034() throws InterruptedException {
+		logTestCase("TC_034");
 		System.out.println("Start TC 34 with Product name = " + productName);
 		sellerPage.inputInfo(pathDataImage, productName);
 		sellerPage.inputDes(description_txt);
