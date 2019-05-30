@@ -18,6 +18,8 @@ import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
@@ -28,7 +30,7 @@ import io.github.bonigarcia.wdm.FirefoxDriverManager;
 public class CommonTestCase {
 	WebDriver driver;
 	ExtentHtmlReporter htmlReport;
-    ExtentReports extent;
+	ExtentReports extent;
 	ExtentTest test;
 
 	public WebDriver openMultiBrowser(String browser, String version, String url) {
@@ -39,7 +41,7 @@ public class CommonTestCase {
 			driver = new ChromeDriver(options);
 			driver.get(url);
 			driver.manage().window().maximize();
-			
+
 		} else if (browser.equals("firefox")) {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-notifications");
@@ -50,27 +52,27 @@ public class CommonTestCase {
 		}
 		return driver;
 	}
-	
+
 	public void getResult(ITestResult result) {
 		if (result.getStatus() == ITestResult.FAILURE) {
-			test.log(Status.FAIL, "Test Case Failed is " + result.getName());
-			test.log(Status.FAIL, "Test Case Failed is " + result.getThrowable());
+			test.log(Status.FAIL, MarkupHelper.createLabel("Test Case Failed is " + result.getName(), ExtentColor.RED));
+			test.log(Status.FAIL, MarkupHelper.createLabel("Test Case Failed is " + result.getThrowable(), ExtentColor.RED));
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
-			test.log(Status.PASS, "Test Case Passed is " + result.getName());
+			test.log(Status.PASS, MarkupHelper.createLabel("Test Case Passed is " + result.getName(), ExtentColor.GREEN));
 		} else if (result.getStatus() == ITestResult.SKIP) {
-			test.log(Status.SKIP, "Test Case Skipped is " + result.getName());
+			test.log(Status.SKIP, MarkupHelper.createLabel("Test Case Skipped is " + result.getName(), ExtentColor.ORANGE));
 		}
 	}
-	
+
 	public void logTestCase(String name) {
 		test = extent.createTest(name);
 	}
-	
+
 	public void exportReport() {
 		extent.flush();
-		extent.close();
+//		extent.close();
 	}
-	
+
 	public void initialReport(String report) {
 		htmlReport = new ExtentHtmlReporter(
 				System.getProperty("user.dir").concat("/test-output/ExtendReport/" + report));
@@ -80,7 +82,7 @@ public class CommonTestCase {
 		htmlReport.config().setTheme(Theme.STANDARD);
 		htmlReport.config().setTestViewChartLocation(ChartLocation.TOP);
 	}
-	
+
 	public String getDateTime() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
 		Date date = new Date();
@@ -96,7 +98,7 @@ public class CommonTestCase {
 	public void verifyEqual(String actual, String expected) {
 		assertEquals(actual, expected);
 	}
-	
+
 	public void verifyEqual(int actual, int expected) {
 		assertEquals(actual, expected);
 	}
@@ -104,7 +106,7 @@ public class CommonTestCase {
 	public void closeBrowser() {
 		driver.quit();
 	}
-	
+
 	public void refreshBrowser() {
 		refreshBrowser();
 	}
@@ -114,7 +116,7 @@ public class CommonTestCase {
 //		return new Gson().fromJson(json, JsonData.class);
 //	}
 
-	public String readFile(String filename) { 
+	public String readFile(String filename) {
 		String result = "";
 		try {
 			@SuppressWarnings("resource")
